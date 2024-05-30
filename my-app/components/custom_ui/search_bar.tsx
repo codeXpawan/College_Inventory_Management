@@ -9,7 +9,7 @@ export default function SerachBar(){
                 height={24}
                 alt="Search Bar"
             />
-            <Input className=" placeholder:text-[#1570EF] focus-visible:ring-[#1570EF]" placeholder="Search product, supplier, order"/></div>
+            <input className=" placeholder:text-[#1570EF] h-full w-full ml-2 focus:outline-none" placeholder="Search product, supplier, order"/></div>
         </div>
     )
 }
