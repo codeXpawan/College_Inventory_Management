@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { Input } from "../ui/input"
 export default function SerachBar(){
     return (
         <div className="flex justify-center flex-col w-[574px] h-[44px] border rounded-[4px] border-[#1570EF]">
@@ -7,7 +8,8 @@ export default function SerachBar(){
                 width={24}
                 height={24}
                 alt="Search Bar"
-            />Search product, supplier, order</div>
+            />
+            <Input placeholder="Search product, supplier, order"/></div>
         </div>
     )
 }
