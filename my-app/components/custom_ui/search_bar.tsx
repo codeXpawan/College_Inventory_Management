@@ -1,6 +1,6 @@
 import Image from "next/image"
-import { Input } from "../ui/input"
-export default function SerachBar(){
+import { Input } from "@/components/ui/input"
+export default function search_bar(){
     return (
         <div className="flex text-[#1570EF] justify-center flex-col w-[574px] h-[44px] border rounded-[4px] border-[#1570EF]">
             <div className="flex ml-2  text-base"><Image 

@@ -24,9 +24,11 @@ const config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        'hover-color': '#1570EF',
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -72,6 +74,12 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+    },
+  },
+  variants: {
+    extend: {
+      brightness: ['hover'],
+      invert: ['hover'],
     },
   },
   plugins: [require("tailwindcss-animate")],
