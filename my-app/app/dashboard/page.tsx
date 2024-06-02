@@ -1,5 +1,5 @@
 import React from 'react'
-import { sidebar } from '@/components/custom_ui/Sidebar';
+import { sidebar } from '@/components/custom_ui/SideNavBar';
 
 const page = () => {
   return (
