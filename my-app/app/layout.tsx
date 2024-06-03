@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import SideNavBar from "@/components/custom_ui/SideNavBar";
-import { Home } from "lucide-react"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn("min-h-screen w-full bg-white text-black flex")}>
-        <Home />
+      
         <SideNavBar />
         <div className="p-8 w-full"> {children}</div>
       </body>

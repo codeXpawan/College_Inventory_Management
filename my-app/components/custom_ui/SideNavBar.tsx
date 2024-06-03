@@ -3,13 +3,13 @@ import React from "react";
 import { Nav } from "@/components/custom_ui/nav";
 import {
   Home,
-  Archive,
-  Trash2,
   Container,
   University,
   UsersRound,
   ShoppingBag,
+  ArrowLeft,
 } from "lucide-react";
+import Image from "next/image";
 
 import { useState } from "react";
 
@@ -19,10 +19,18 @@ export default function SideNavBar({}: Props) {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const toggleCollapse = () => setIsCollapsed(!isCollapsed);
   return (
-    <div>
-      <div>
-        <button onClick={toggleCollapse}>Toggle Collapse</button>
+    <div className="flex flex-col items-center relative h-full">
+      <Image
+        src="/Logo.svg"
+        alt="IOEPC Logo"
+        width={200}
+        height={200}
+        className="my-4"
+      />
+      <div className="absolute top-20 right-0">
+        <ArrowLeft onClick={toggleCollapse} className="cursor-pointer border-2 rounded-xl" />
       </div>
+
       <Nav
         isCollapsed={isCollapsed}
         links={[
@@ -38,7 +46,7 @@ export default function SideNavBar({}: Props) {
             label: "",
             icon: Container,
             variant: "ghost",
-            href:"/inventory",
+            href: "/inventory",
           },
           {
             title: "Department",
@@ -48,7 +56,7 @@ export default function SideNavBar({}: Props) {
             href: "/department",
           },
           {
-            title: "Roles and Permission",
+            title: "Roles and Permissions",
             label: "",
             icon: UsersRound,
             variant: "ghost",
