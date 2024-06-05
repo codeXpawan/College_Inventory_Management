@@ -1,8 +1,8 @@
 import Image from "next/image"
-import { Input } from "@/components/ui/input"
-export default function search_bar(){
+// import { Input } from "@/components/ui/input"
+export default function Search_Bar(){
     return (
-        <div className="flex text-[#1570EF] justify-center flex-col w-[574px] h-[44px] border rounded-[4px] border-[#1570EF]">
+        <div className="flex mx-9 my-12 text-[#1570EF] justify-center flex-col w-[574px] h-[44px] border rounded-[4px] border-[#1570EF]">
             <div className="flex ml-2  text-base"><Image 
                 src="/Search.svg"
                 width={24}
