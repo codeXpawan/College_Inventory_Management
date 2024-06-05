@@ -24,11 +24,13 @@ export default function RootLayout({
       <body className={cn("min-h-screen w-full bg-white text-black")}>
       <div className="flex flex-row">
         <SideNavBar />
-        <div className=" flex flex-col">
+        <div className=" flex flex-col flex-grow">
         <div className="flex flex-row">
         <Search_Bar/>
+        <div className=" flex ml-auto">
         <Notification/>
         <User/>
+        </div>
         </div>
         <div className="p-8 w-full"> {children}</div>
         </div>

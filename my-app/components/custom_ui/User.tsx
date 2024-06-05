@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export default function User(){
     return (
-        <div className="mr-9 my-12 float-right"><Image
+        <div className=" mr-6 my-12"><Image
         src="/Profile.svg"
                 width={40}
                 height={40}
