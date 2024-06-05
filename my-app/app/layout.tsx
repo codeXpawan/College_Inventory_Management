@@ -4,6 +4,8 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import SideNavBar from "@/components/custom_ui/SideNavBar";
 import Search_Bar from "@/components/custom_ui/search_bar";
+import User from "@/components/custom_ui/User";
+import Notification from "@/components/custom_ui/Notification";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,11 +21,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn("min-h-screen w-full bg-white text-black flex")}>
-      
+      <body className={cn("min-h-screen w-full bg-white text-black")}>
+      <div className="flex flex-row">
         <SideNavBar />
+        <div className=" flex flex-col">
+        <div className="flex flex-row">
         <Search_Bar/>
+        <Notification/>
+        <User/>
+        </div>
         <div className="p-8 w-full"> {children}</div>
+        </div>
+        
+        </div>
       </body>
     </html>
   );
