@@ -22,19 +22,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn("min-h-screen w-full bg-white text-black")}>
-      <div className="flex flex-row">
-        <SideNavBar />
-        <div className=" flex flex-col flex-grow">
-        <div className="flex ">
-        <Search_Bar/>
-        <div className=" flex ml-auto">
-        <Notification/>
-        <User/>
-        </div>
-        </div>
-        <div className="p-8 w-full"> {children}</div>
-        </div>
-        
+        <div className="flex flex-row">
+          <SideNavBar />
+          <div className=" flex flex-col flex-grow">
+            <div className="flex ">
+              <Search_Bar />
+              <div className=" flex ml-auto">
+                <Notification />
+                <User />
+              </div>
+            </div>
+            <div className="p-8 w-full"> {children}</div>
+          </div>
         </div>
       </body>
     </html>
