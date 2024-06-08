@@ -1,9 +1,13 @@
 import React from 'react'
+import PageTitle from '@/components/ui/pageTitle'
 
-const inventory = () => {
+const page = () => {
   return (
-    <div> inventory</div>
+    <div>
+      <PageTitle  title="Inventory"/>
+      inventory page
+    </div>
   )
 }
 
-export default inventory
+export default page

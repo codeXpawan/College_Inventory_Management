@@ -1,9 +1,13 @@
 import React from 'react'
+import PageTitle from '@/components/ui/pageTitle'
 
-const manage_store = () => {
+const page = () => {
   return (
-    <div>manage_store</div>
+    <div>
+      <PageTitle  title="Manage Store"/>
+      manage page
+    </div>
   )
 }
 
-export default manage_store
+export default page

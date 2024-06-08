@@ -25,7 +25,7 @@ export default function RootLayout({
       <div className="flex flex-row">
         <SideNavBar />
         <div className=" flex flex-col flex-grow">
-        <div className="flex flex-row">
+        <div className="flex ">
         <Search_Bar/>
         <div className=" flex ml-auto">
         <Notification/>

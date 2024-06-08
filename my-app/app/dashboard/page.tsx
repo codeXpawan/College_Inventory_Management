@@ -1,11 +1,11 @@
 import React from 'react'
-import { sidebar } from '@/components/custom_ui/Sidebar';
+import PageTitle from '@/components/ui/pageTitle'
 
 const page = () => {
   return (
     <div>
-    {sidebar()}
-    
+      <PageTitle  title="Dashboard"/>
+      home page
     </div>
   )
 }

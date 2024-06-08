@@ -1,9 +1,13 @@
 import React from 'react'
+import PageTitle from '@/components/ui/pageTitle'
 
-const reports = () => {
+const page = () => {
   return (
-    <div>reports</div>
+    <div>
+      <PageTitle  title="Reports"/>
+      report page
+    </div>
   )
 }
 
-export default reports
+export default page

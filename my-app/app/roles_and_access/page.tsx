@@ -1,9 +1,13 @@
 import React from 'react'
+import PageTitle from '@/components/ui/pageTitle'
 
-const roles_and_access = () => {
+const page = () => {
   return (
-    <div>roles_and_access</div>
+    <div>
+      <PageTitle  title="Roles and Permissions"/>
+      roles page
+    </div>
   )
 }
 
-export default roles_and_access
+export default page
