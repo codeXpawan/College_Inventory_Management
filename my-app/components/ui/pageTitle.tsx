@@ -8,7 +8,8 @@ type Props = {
 }
 export default function PageTitle({title, className }: Props) {
     return <h1 className={cn("text-2*1 font-semibold flex ", className)}>
-        <ChevronRight />
+       
         {title}
+        {/* <ChevronRight /> */}
         </h1>
 }

@@ -79,7 +79,7 @@ export default function SideNavBar({}: Props) {
             label: "",
             icon: Container,
             variant: "ghost",
-            href: "/inventory ",
+            href: "/inventory",
           },
           {
             title: "Department",
