@@ -1,11 +1,9 @@
-import Image from "next/image"
+import { Bell } from "lucide-react";
 
-export default function Notification(){
-    return (
-        <div className="float-right mx-9 my-14"><Image
-        src="/Notification.svg"
-                width={24}
-                height={24}
-                alt="Notice"/></div>
-    )
+export default function Notification() {
+  return (
+    <div className="relative">
+      <Bell className="h-6 w-6 pt-2" />
+    </div>
+  );
 }

@@ -3,14 +3,13 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import SideNavBar from "@/components/custom_ui/SideNavBar";
-import Search_Bar from "@/components/custom_ui/search_bar";
-import User from "@/components/custom_ui/User";
+import {Search}  from "@/components/custom_ui/Search";
+import { UserNav } from "@/components/custom_ui/DropDownUser";
 import Notification from "@/components/custom_ui/Notification";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Inventory",
   description: "IOEPC Inventory Dashboard",
 };
 
@@ -20,22 +19,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={cn("min-h-screen w-full bg-white text-black")}>
-        <div className="flex flex-row">
-          <SideNavBar />
-          <div className=" flex flex-col flex-grow">
-            <div className="flex ">
-              <Search_Bar />
-              <div className=" flex ml-auto">
-                <Notification />
-                <User />
-              </div>
-            </div>
-            <div className="p-8 w-full"> {children}</div>
+<html lang="en">
+  <body className={cn("min-h-screen w-full bg-white text-black")}>
+    <div className="flex flex-row">
+      <SideNavBar />
+      <div className="flex flex-col flex-grow">
+        <div className="flex justify-between items-center p-4">
+          <Search />
+          <div className="flex gap-2">
+          <Notification />
+          <UserNav />
           </div>
         </div>
-      </body>
-    </html>
+        <div className="p-8 w-full"> {children}</div>
+      </div>
+    </div>
+  </body>
+</html>
   );
 }
