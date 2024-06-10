@@ -80,6 +80,16 @@ export default function SideNavBar({}: Props) {
             icon: Container,
             variant: "ghost",
             href: "/inventory",
+            submenu: true,
+            subMenuItems: [
+              {
+                title: "Add item",
+                label: "",
+                icon: UsersRound,
+                variant: "ghost",
+                href: "/inventory/add_item",
+              },
+            ],
           },
           {
             title: "Department",
