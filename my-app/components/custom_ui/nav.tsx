@@ -56,7 +56,7 @@ export function Nav({ links, isCollapsed }: NavProps) {
                       href={link.href}
                       className={cn(
                         buttonVariants({ variant: link.href === pathname ? "default" : "ghost", size: "icon" }),
-                        "h-9 w-9",
+                        "h-9 w-20",
                         link.variant === "default" &&
                           "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white"
                       )}
@@ -101,7 +101,7 @@ export function Nav({ links, isCollapsed }: NavProps) {
                 </Link>
               )}
               {link.submenu && openSubMenuIndex === index && (
-                <div className="ml-4 mt-2 space-y-2">
+                <div className="ml-4 mt-2 space-y-2  ">
                   {link.subMenuItems?.map((subItem, subIndex) => (
                     <Link
                       key={subIndex}

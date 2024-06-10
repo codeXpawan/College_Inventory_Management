@@ -13,6 +13,8 @@ import {
   ChevronLeft,
   LogOut,
   ListChecks,
+  Plus,
+  List,
 } from "lucide-react";
 import Image from "next/image";
 
@@ -85,9 +87,16 @@ export default function SideNavBar({}: Props) {
               {
                 title: "Add item",
                 label: "",
-                icon: UsersRound,
+                icon: Plus,
                 variant: "ghost",
-                href: "/inventory/add_item",
+                href: "/inventory/add-item",
+              },
+              {
+                title: "List item",
+                label: "",
+                icon: List,
+                variant: "ghost",
+                href: "/inventory/list-item",
               },
             ],
           },
