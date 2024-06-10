@@ -39,6 +39,7 @@ export function Nav({ links, isCollapsed }: NavProps) {
   const toggleSubMenu = (index: number) => {
     setOpenSubMenuIndex(openSubMenuIndex === index ? null : index);
   };
+  
 
   return (
     <TooltipProvider>
