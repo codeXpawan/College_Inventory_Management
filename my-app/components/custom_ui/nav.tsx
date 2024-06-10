@@ -1,17 +1,17 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { LucideIcon } from "lucide-react"
-import { useState } from "react"
-import { cn } from "@/lib/utils"
-import { buttonVariants } from "@/components/ui/button"
+import Link from "next/link";
+import { LucideIcon } from "lucide-react";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/ui/tooltip"
-import { TooltipProvider } from "@radix-ui/react-tooltip"
-import { usePathname } from "next/navigation"
+} from "@/components/ui/tooltip";
+import { TooltipProvider } from "@radix-ui/react-tooltip";
+import { usePathname } from "next/navigation";
 
 interface NavProps {
   isCollapsed: boolean;
@@ -55,18 +55,31 @@ export function Nav({ links, isCollapsed }: NavProps) {
                     <Link
                       href={link.href}
                       className={cn(
-                        buttonVariants({ variant: link.href === pathname ? "default" : "ghost", size: "icon" }),
+                        buttonVariants({
+                          variant: link.href === pathname ? "default" : "ghost",
+                          size: "icon",
+                        }),
                         "h-9 w-20",
                         link.variant === "default" &&
                           "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white"
                       )}
-                      onClick={link.submenu ? (e) => { e.preventDefault(); toggleSubMenu(index); } : undefined}
+                      onClick={
+                        link.submenu
+                          ? (e) => {
+                              e.preventDefault();
+                              toggleSubMenu(index);
+                            }
+                          : undefined
+                      }
                     >
                       <link.icon className="h-4 w-4" />
                       <span className="sr-only">{link.title}</span>
                     </Link>
                   </TooltipTrigger>
-                  <TooltipContent side="right" className="flex items-center gap-4">
+                  <TooltipContent
+                    side="right"
+                    className="flex items-center gap-4"
+                  >
                     {link.title}
                     {link.label && (
                       <span className="ml-auto text-muted-foreground">
@@ -79,12 +92,22 @@ export function Nav({ links, isCollapsed }: NavProps) {
                 <Link
                   href={link.href}
                   className={cn(
-                    buttonVariants({ variant: link.href === pathname ? "default" : "ghost", size: "sm" }),
+                    buttonVariants({
+                      variant: link.href === pathname ? "default" : "ghost",
+                      size: "sm",
+                    }),
                     link.variant === "default" &&
                       "dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white",
                     "justify-start"
                   )}
-                  onClick={link.submenu ? (e) => { e.preventDefault(); toggleSubMenu(index); } : undefined}
+                  onClick={
+                    link.submenu
+                      ? (e) => {
+                          e.preventDefault();
+                          toggleSubMenu(index);
+                        }
+                      : undefined
+                  }
                 >
                   <link.icon className="mr-2 h-4 w-4" />
                   {link.title}
@@ -92,7 +115,8 @@ export function Nav({ links, isCollapsed }: NavProps) {
                     <span
                       className={cn(
                         "ml-auto",
-                        link.variant === "default" && "text-background dark:text-white"
+                        link.variant === "default" &&
+                          "text-background dark:text-white"
                       )}
                     >
                       {link.label}
@@ -101,13 +125,17 @@ export function Nav({ links, isCollapsed }: NavProps) {
                 </Link>
               )}
               {link.submenu && openSubMenuIndex === index && (
-                <div className="ml-4 mt-2 space-y-2  ">
+                <div className="ml-4 mt-2 space-y-2 flex flex-col">
                   {link.subMenuItems?.map((subItem, subIndex) => (
                     <Link
                       key={subIndex}
                       href={subItem.href}
                       className={cn(
-                        buttonVariants({ variant: subItem.href === pathname ? "default" : "ghost", size: "sm" }),
+                        buttonVariants({
+                          variant:
+                            subItem.href === pathname ? "default" : "ghost",
+                          size: "sm",
+                        }),
                         subItem.variant === "default" &&
                           "dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white",
                         "justify-start"
@@ -119,7 +147,8 @@ export function Nav({ links, isCollapsed }: NavProps) {
                         <span
                           className={cn(
                             "ml-auto",
-                            subItem.variant === "default" && "text-background dark:text-white"
+                            subItem.variant === "default" &&
+                              "text-background dark:text-white"
                           )}
                         >
                           {subItem.label}
