@@ -12,7 +12,6 @@ import {
 } from "@/components/ui/tooltip";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 import { usePathname } from "next/navigation";
-import { sub } from "date-fns";
 
 interface NavProps {
   isCollapsed: boolean;
@@ -36,12 +35,13 @@ interface NavProps {
 
 export function Nav({ links, isCollapsed }: NavProps) {
   const [openSubMenuIndex, setOpenSubMenuIndex] = useState<number | null>(null);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const pathname = usePathname();
 
   const toggleSubMenu = (index: number) => {
+    setDropdownOpen(!dropdownOpen);
     setOpenSubMenuIndex(openSubMenuIndex === index ? null : index);
   };
-  
 
   return (
     <TooltipProvider>
@@ -79,17 +79,6 @@ export function Nav({ links, isCollapsed }: NavProps) {
                       <span className="sr-only">{link.title}</span>
                     </Link>
                   </TooltipTrigger>
-                  <TooltipContent
-                    side="right"
-                    className="flex items-center gap-4"
-                  >
-                    {link.title}
-                    {link.label && (
-                      <span className="ml-auto text-muted-foreground">
-                        {link.label}
-                      </span>
-                    )}
-                  </TooltipContent>
                 </Tooltip>
               ) : (
                 <Link
@@ -114,8 +103,9 @@ export function Nav({ links, isCollapsed }: NavProps) {
                 >
                   <link.icon className="mr-2 h-4 w-4" />
                   {link.title}
-                  
-                  {link.label  &&(
+                  {link.subicon ? <link.subicon className={dropdownOpen ? "ml-2 rotate-180" : "ml-2"} /> : null}
+
+                  {link.label && (
                     <span
                       className={cn(
                         "ml-auto",
@@ -124,13 +114,12 @@ export function Nav({ links, isCollapsed }: NavProps) {
                       )}
                     >
                       {link.label}
-                      
                     </span>
                   )}
                 </Link>
               )}
-              {link.submenu && openSubMenuIndex === index &&  (
-                <div className="ml-4 mt-2 space-y-2 flex flex-col">
+              {link.submenu && openSubMenuIndex === index && (
+                <div className="ml-5 mt-2 space-y-2 flex flex-col">
                   {link.subMenuItems?.map((subItem, subIndex) => (
                     <Link
                       key={subIndex}
@@ -139,16 +128,20 @@ export function Nav({ links, isCollapsed }: NavProps) {
                         buttonVariants({
                           variant:
                             subItem.href === pathname ? "default" : "ghost",
-                            size: isCollapsed ? "icon" : "sm",
+                          size: isCollapsed ? "icon" : "sm",
                         }),
                         subItem.variant === "default" &&
                           "dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white",
-                        "justify-start"
+                        "justify-center"
                       )}
                     >
-                      <subItem.icon className="mr-2 h-4 w-4" />
-                      {isCollapsed ?  <span className="sr-only ">{subItem.title}</span> : subItem.title}
-                      
+                      <subItem.icon className="h-4 w-4" />
+                      {isCollapsed ? (
+                        <span className="sr-only ">{subItem.title}</span>
+                      ) : (
+                        subItem.title
+                      )}
+
                       {subItem.label && (
                         <span
                           className={cn(
@@ -159,7 +152,6 @@ export function Nav({ links, isCollapsed }: NavProps) {
                         >
                           {subItem.label}
                         </span>
-                        
                       )}
                     </Link>
                   ))}

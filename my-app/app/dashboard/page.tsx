@@ -14,16 +14,10 @@ import {
 import {
   Tabs,
   TabsContent,
-  TabsList,
-  TabsTrigger,
 } from "@/components/ui/tabs"
 import { CalendarDateRangePicker } from "@/components/custom_ui/date-range-picker"
-import { MainNav } from "@/components/custom_ui/main-nav"
 import { Overview } from "@/components/custom_ui/overview"
 import { RecentSales } from "@/components/custom_ui/recent-sales"
-import { Search } from "@/components/custom_ui/search-simple"
-import TeamSwitcher from "@/components/custom_ui/team-switcher"
-import { UserNav } from "@/components/custom_ui/user-nav"
 
 export const metadata: Metadata = {
   title: "Dashboard",
@@ -36,9 +30,9 @@ const page = () => {
       <PageTitle  title="Dashboard"/>
      
       <div className="flex h-screen">
-        <div className="flex-1 space-y-4 p-8 pt-6">
+        <div className="flex-1 space-y-4 md:p-8 md:pt-6 p-0 pt-0">
           <div className="flex items-center justify-between space-y-2">
-            <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
+            <h2 className="md:text-3xl text-xl font-bold tracking-tight">Dashboard</h2>
             <div className="flex items-center space-x-2">
               <CalendarDateRangePicker />
               <Button>Download</Button>
@@ -46,7 +40,7 @@ const page = () => {
           </div>
           <Tabs defaultValue="overview" className="space-y-4">
             <TabsContent value="overview" className="space-y-4">
-              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+              <div className="grid gap-1 md:grid-cols-2 grid-cols-2 lg:grid-cols-4  md:w-full">
                 <Card>
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium">
