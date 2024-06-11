@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/tooltip";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 import { usePathname } from "next/navigation";
+import { sub } from "date-fns";
 
 interface NavProps {
   isCollapsed: boolean;
@@ -22,6 +23,7 @@ interface NavProps {
     variant: "default" | "ghost";
     href: string;
     submenu?: boolean;
+    subicon?: LucideIcon;
     subMenuItems?: {
       title: string;
       label?: string;
@@ -112,7 +114,8 @@ export function Nav({ links, isCollapsed }: NavProps) {
                 >
                   <link.icon className="mr-2 h-4 w-4" />
                   {link.title}
-                  {link.label && (
+                  
+                  {link.label  &&(
                     <span
                       className={cn(
                         "ml-auto",
@@ -121,6 +124,7 @@ export function Nav({ links, isCollapsed }: NavProps) {
                       )}
                     >
                       {link.label}
+                      
                     </span>
                   )}
                 </Link>

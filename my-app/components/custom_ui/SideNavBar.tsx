@@ -11,6 +11,7 @@ import {
   Settings,
   Proportions,
   ChevronLeft,
+  ChevronDown,
   LogOut,
   ListChecks,
   Plus,
@@ -83,6 +84,7 @@ export default function SideNavBar({}: Props) {
             variant: "ghost",
             href: "/inventory",
             submenu: true,
+            subicon: ChevronDown,
             subMenuItems: [
               {
                 title: "Add item",
