@@ -125,7 +125,7 @@ export function Nav({ links, isCollapsed }: NavProps) {
                   )}
                 </Link>
               )}
-              {link.submenu && openSubMenuIndex === index && (
+              {link.submenu && openSubMenuIndex === index &&  (
                 <div className="ml-4 mt-2 space-y-2 flex flex-col">
                   {link.subMenuItems?.map((subItem, subIndex) => (
                     <Link
@@ -135,7 +135,7 @@ export function Nav({ links, isCollapsed }: NavProps) {
                         buttonVariants({
                           variant:
                             subItem.href === pathname ? "default" : "ghost",
-                          size: "sm",
+                            size: isCollapsed ? "icon" : "sm",
                         }),
                         subItem.variant === "default" &&
                           "dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white",
@@ -143,7 +143,8 @@ export function Nav({ links, isCollapsed }: NavProps) {
                       )}
                     >
                       <subItem.icon className="mr-2 h-4 w-4" />
-                      {subItem.title}
+                      {isCollapsed ?  <span className="sr-only ">{subItem.title}</span> : subItem.title}
+                      
                       {subItem.label && (
                         <span
                           className={cn(
@@ -154,6 +155,7 @@ export function Nav({ links, isCollapsed }: NavProps) {
                         >
                           {subItem.label}
                         </span>
+                        
                       )}
                     </Link>
                   ))}
