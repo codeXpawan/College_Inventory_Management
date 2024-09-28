@@ -27,7 +27,7 @@ import { on } from "events";
 
 type Props = {};
 
-export default function SideNavBar({}: Props) {
+export default function SideNavBar({handleMarginLeft}: {handleMarginLeft: (margin:string)=>void;}) {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isClient, setIsClient] = useState(false);
   const [onlyWidth, setOnlyWidth] = useState(0);
@@ -41,8 +41,23 @@ export default function SideNavBar({}: Props) {
 
   const mobileWidth = onlyWidth < 768;
   const toggleCollapse = () => setIsCollapsed(!isCollapsed);
+  useEffect(()=>{
+    if(isCollapsed){
+      handleMarginLeft('ml-28');
+    }
+    else{
+      handleMarginLeft('ml-60');
+    }
+  },[handleMarginLeft, isCollapsed]);
+  useEffect(()=>{
+    if(mobileWidth){
+      setIsCollapsed(true);
+    }else{
+      setIsCollapsed(false);
+    }
+  },[mobileWidth])
   return (
-    <div className="relative max-w-xs h-screen  gap-4 px-2  bg-[#D9D9D9]">
+    <div className="fixed max-w-xs h-screen gap-4 px-2  bg-[#D9D9D9]">
       {isCollapsed ? (
         <Image
           src="/image.svg"
@@ -68,7 +83,7 @@ export default function SideNavBar({}: Props) {
         />
       </div>
       <Nav
-        isCollapsed={mobileWidth ? true : isCollapsed}
+        isCollapsed={isCollapsed}
         links={[
           {
             title: "Dashboard",
@@ -141,7 +156,7 @@ export default function SideNavBar({}: Props) {
       />
       <div className="absolute bottom-0 ">
         <Nav
-          isCollapsed={mobileWidth ? true : isCollapsed}
+          isCollapsed= {isCollapsed}
           links={[
             {
               title: "Settings",

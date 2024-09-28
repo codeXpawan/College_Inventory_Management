@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import PageTitle from '@/components/ui/pageTitle'
 import { Metadata } from "next"
@@ -19,17 +20,17 @@ import { CalendarDateRangePicker } from "@/components/custom_ui/date-range-picke
 import { Overview } from "@/components/custom_ui/overview"
 import { RecentSales } from "@/components/custom_ui/recent-sales"
 
-export const metadata: Metadata = {
-  title: "Dashboard",
-  description: "Example dashboard app built using the components.",
-}
+// export const metadata: Metadata = {
+//   title: "Dashboard",
+//   description: "Example dashboard app built using the components.",
+// }
 
 const page = () => {
   return (
     <div>
       <PageTitle  title="Dashboard"/>
      
-      <div className="flex h-screen">
+      <div className="flex h-full">
         <div className="flex-1 space-y-4 md:p-8 md:pt-6 p-0 pt-0">
           <div className="flex items-center justify-between space-y-2">
             <h2 className="md:text-3xl text-xl font-bold tracking-tight">Dashboard</h2>
