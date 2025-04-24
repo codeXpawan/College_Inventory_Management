@@ -31,20 +31,20 @@ export default function RootLayout({
   return (
 <html lang="en">
   <body className={cn("h-screen w-full bg-white text-black")}>
-    <div className="grid grid-cols-[auto_1fr] h-screen">
-      <div><SideNavBar handleMarginLeft = {marginLeft}/></div>
+    {/* <div className="grid grid-cols-[auto_1fr] h-screen"> */}
+      {/* <div><SideNavBar handleMarginLeft = {marginLeft}/></div> */}
       
-      <div className={`flex ${MarginLeft} flex-col flex-grow h-screen overflow-y-auto` }>
-        <div className="flex justify-between items-center p-4">
+      {/* <div className={`flex ${MarginLeft} flex-col flex-grow h-screen overflow-y-auto` }> */}
+        {/* <div className="flex justify-between items-center p-4">
           <Search />
           <div className="flex gap-2">
           <Notification />
           <UserNav />
           </div>
-        </div>
-        <div className="p-8 w-full"> {children}</div>
-      </div>
-    </div>
+        </div> */}
+        <div > {children}</div>
+      {/* </div> */}
+    {/* </div> */}
   </body>
 </html>
   );
