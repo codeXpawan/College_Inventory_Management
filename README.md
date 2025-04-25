@@ -10,7 +10,7 @@ A full-stack Inventory Management System built with Next.js and Django. The main
 - Role-based authentication
 
 ## Technology Stack
-    - Front-end
-        - React, Next.Js, 
-    - Back-end
-        - Django, Django Rest Framework
+- **Front-end**
+  - React, Next.Js, 
+- **Back-end**
+  - Django, Django Rest Framework
